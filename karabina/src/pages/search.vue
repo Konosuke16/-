@@ -5,9 +5,34 @@
         <i class="fa fa-search"></i>
         <input type="text" class="form-control form-input" placeholder="キーワードを入力...">
       </div>
+      <div class="flex-box">
+      <label class="selectbox-3">
+    <select>
+        <option>optionの例1</option>
+        <option>optionの例2</option>
+        <option>optionの例3</option>
+    </select>
+</label>
+
+<label class="selectbox-3">
+    <select>
+        <option>optionの例1</option>
+        <option>optionの例2</option>
+        <option>optionの例3</option>
+    </select>
+</label>
+
+<label class="selectbox-3">
+    <select>
+        <option>optionの例1</option>
+        <option>optionの例2</option>
+        <option>optionの例3</option>
+    </select>
+</label>
+    </div>
     </div>
   </template>
-  
+
   <style scoped>
   .title {                  /*イベント検索を表示 */
     text-align: center;
@@ -41,5 +66,42 @@
     box-shadow: none;
     border: none;
   }
+
+  .selectbox-3 {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.selectbox-3::after {
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 7px;
+    background-color: #535353;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-3 select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
   </style>
   
