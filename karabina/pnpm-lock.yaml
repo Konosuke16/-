@@ -14,6 +14,9 @@ importers:
       vue:
         specifier: latest
         version: 3.4.38
+      vue-select:
+        specifier: ^3.20.3
+        version: 3.20.3(vue@3.4.38)
       vuetify:
         specifier: ^3.7.0
         version: 3.7.0(vue@3.4.38)
@@ -3068,6 +3071,11 @@ packages:
     resolution: {integrity: sha512-sv6wmNKx2j3aqJQDMxLFzs/u/mjA9Z5LCgy6BE0f7yFWMjrPLnS/sPNn8ARY/FXw6byV18EFutn5lTO6+UsV5A==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue-select@3.20.3:
+    resolution: {integrity: sha512-aDaq4rPBrDavh7NDLgAP8e0G8UNElh6vO3itGWjhf1y9KaGRWtFw21cUkSRHGgj0V5FlCG4EaRb1xdE/C9J+eg==}
+    peerDependencies:
+      vue: 2.x
 
   vue@3.4.38:
     resolution: {integrity: sha512-f0ZgN+mZ5KFgVv9wz0f4OgVKukoXtS3nwET4c2vLBGQR50aI8G0cqbFtLlX9Yiyg3LFGBitruPHt2PxwTduJEw==}
@@ -6459,6 +6467,10 @@ snapshots:
   vue-router@4.4.3(vue@3.4.38):
     dependencies:
       '@vue/devtools-api': 6.6.3
+      vue: 3.4.38
+
+  vue-select@3.20.3(vue@3.4.38):
+    dependencies:
       vue: 3.4.38
 
   vue@3.4.38:
