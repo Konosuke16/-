@@ -2,16 +2,17 @@ FROM node:18-alpine
 
 ENV TZ Asia/Tokyo
 
-RUN npm install -g pnpm
-
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json package-lock.json ./
 
-RUN pnpm install
+RUN npm install
 
 COPY . .
 
-RUN pnpm build
+ENV HOST 0.0.0.0
+EXPOSE 3000
 
-CMD ["pnpm", "start"]
+RUN npm run build
+
+CMD ["npm", "start"]
