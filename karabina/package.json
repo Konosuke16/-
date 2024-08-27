@@ -12,6 +12,7 @@
   "dependencies": {
     "nuxt": "latest",
     "vue": "latest",
+    "vue-select": "^3.20.3",
     "vuetify": "^3.7.0"
   },
   "devDependencies": {

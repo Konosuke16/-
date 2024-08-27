@@ -1,13 +1,21 @@
 <template>
-  <body>
-    <div>
-      <h1>hello</h1>
-    </div>
-  </body>
+  <form
+    action="function/repository.php"
+    method="GET"
+    class="myForm_repository"
+    id="keywordApp"
+  >
+    <input
+      type="text"
+      name="keyword"
+      placeholder="キーワードを入力"
+      v-model="keyword"
+    />
+    <input
+      type="submit"
+      class="search_submit"
+      v-bind:disabled="isSubmitDisabled"
+      v-bind:class="buttonClass"
+    />
+  </form>
 </template>
-
-<style scoped>
-body {
-  background-color: red;
-}
-</style>
