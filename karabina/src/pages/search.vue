@@ -1,40 +1,74 @@
 <template>
-    <div>
-      <h1 class="title">イベント検索</h1>
-      <div class="form">
-        <i class="fa fa-search"></i>
-        <input type="text" class="form-control form-input" placeholder="キーワードを入力...">
-      </div>
-      <div class="flex-box">
-      <label class="selectbox-3">
-    <select>
-        <option>optionの例1</option>
-        <option>optionの例2</option>
-        <option>optionの例3</option>
-    </select>
-</label>
-
-<label class="selectbox-3">
-    <select>
-        <option>optionの例1</option>
-        <option>optionの例2</option>
-        <option>optionの例3</option>
-    </select>
-</label>
-
-<label class="selectbox-3">
-    <select>
-        <option>optionの例1</option>
-        <option>optionの例2</option>
-        <option>optionの例3</option>
-    </select>
-</label>
+  <div>
+    <h1 class="title">イベント検索</h1>
+    <div class="form">
+      <i class="fa fa-search"></i>
+      <input type="text" class="form-control form-input" placeholder="キーワードを入力...">
     </div>
-    </div>
-  </template>
 
-  <style scoped>
-  .title {                  /*イベント検索を表示 */
+    <div class="flex-box">
+      <h2>イベントの種類</h2>
+      <label class="selectbox">
+        <select>
+          <option>体験</option>
+          <option>祭り</option>
+          <option>展覧会</option>
+          <option>歴史</option>
+          <option>神社仏閣</option>
+          <option>遊び</option>
+          <option>飲食</option>
+        </select>
+      </label>
+
+      <h2>日付</h2>
+      <label class="selectbox">
+        <select>
+          <option>optionの例1</option>
+          <option>optionの例2</option>
+          <option>optionの例3</option>
+        </select>
+      </label>
+
+      <h2>年代</h2>
+      <label class="selectbox">
+        <select>
+          <option>未就学児</option>
+          <option>小学生</option>
+          <option>中高生</option>
+          <option>大学生</option>
+          <option>大人</option>
+          <option>シニア</option>
+        </select>
+      </label>
+
+      <h2>場所</h2>
+      <label class="selectbox">
+        <select>
+          <option>optionの例1</option>
+          <option>optionの例2</option>
+          <option>optionの例3</option>
+        </select>
+      </label>
+
+      <h2>誰と行く？？</h2>
+      <label class="selectbox">
+        <select>
+          <option>ボッチ</option>
+          <option>恋人</option>
+          <option>男友達</option>
+          <option>女友達</option>
+          <option>家族</option>
+          <option>同僚</option>
+          <option>子供</option>
+          <option>祖父母</option>
+        </select>
+      </label>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+  .title {                  
     text-align: center;
     margin-bottom: 20px;
   }
@@ -43,10 +77,11 @@
     display: flex;
     justify-content: center; 
     align-items: center;
-    margin-top: 20px; 
+    margin-top: 20px;
+    margin-bottom: 10px; 
   }
   
-  .form .fa-search {        /*キーワードを入力を表示*/ 
+  .form .fa-search {        
     position: absolute;
     top: 50%;
     left: 10px;
@@ -67,13 +102,14 @@
     border: none;
   }
 
-  .selectbox-3 {
+  .selectbox {
     display: inline-flex;
     align-items: center;
     position: relative;
-}
+    margin-bottom: 15px;
+  }
 
-.selectbox-3::after {
+  .selectbox::after {
     position: absolute;
     right: 15px;
     width: 10px;
@@ -82,9 +118,9 @@
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     content: '';
     pointer-events: none;
-}
+  }
 
-.selectbox-3 select {
+  .selectbox select {
     appearance: none;
     min-width: 230px;
     height: 2.8em;
@@ -95,13 +131,12 @@
     color: #333333;
     font-size: 1em;
     cursor: pointer;
-}
+  }
 
-.flex-box {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-  </style>
-  
+  .flex-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center; 
+  }
+</style>
