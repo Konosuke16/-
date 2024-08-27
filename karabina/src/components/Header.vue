@@ -1,20 +1,18 @@
 <template>
-  <header class="p-5 bg-yellow-500 text-2xl font-bold">
-    <div class="text-center">
-      <h1>奈良MAP</h1>
+  <header class="header bg-yellow-500">
+    <div class="navtext-container">
+      <div class="navtext">奈良MAP</div>
     </div>
-    <div>
-      <input type="checkbox" class="menu-btn" id="menu-btn" />
-      <label for="menu-btn" class="menu-icon"
-        ><span class="navicon"></span
-      ></label>
-      <ul class="menu">
-        <li class="top"><a href="#home">home</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>
-    </div>
+    <input type="checkbox" class="menu-btn" id="menu-btn" />
+    <label for="menu-btn" class="menu-icon"
+      ><span class="navicon"></span
+    ></label>
+    <ul class="menu bg-yellow-500">
+      <li class="top"><a href="#home">home</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
   </header>
 </template>
 
@@ -40,7 +38,6 @@ export default {
   margin-top: 52px;
   padding: 0 0 10px 0;
   clear: both;
-  background: var(--background-navbar);
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
   transform: scale(1, 0);
   transform-origin: top;
