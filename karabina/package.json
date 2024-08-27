@@ -12,18 +12,11 @@
   "dependencies": {
     "nuxt": "latest",
     "vue": "latest",
-    "vue-select": "^3.20.3",
     "vuetify": "^3.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10"
-  },
-  "version": "1.0.0",
-  "description": "Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.",
-  "main": "tailwind.config.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
