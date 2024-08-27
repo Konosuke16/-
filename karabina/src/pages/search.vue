@@ -3,14 +3,14 @@
     <h3 class="title">イベント検索</h3>
     <div class="form">
       <i class="fa fa-search"></i>
-      <input type="text" class="form-control form-input" placeholder="キーワードを入力...">
+      <input type="text" class="form-control form-input" v-model="keyword" placeholder="キーワードを入力...">
     </div>
 
     <div class="form-group">
       <p class="event-details">イベントの種類</p>
       <div class="flex-box">
         <label class="selectbox">
-          <select>
+          <select v-model="eventType">
             <option>体験</option>
             <option>祭り</option>
             <option>展覧会</option>
@@ -26,9 +26,9 @@
     <div class="form-group">
       <p class="event-details">日時</p>
       <div class="flex-box">
-        <input type="date" name="startdate" id="startdate" class="date-input">
+        <input type="date" name="startdate" id="startdate" class="date-input" v-model="startDate">
         <label> ~ </label>
-        <input type="date" name="enddate" id="enddate" class="date-input">
+        <input type="date" name="enddate" id="enddate" class="date-input" v-model="endDate">
       </div>
     </div>
 
@@ -36,7 +36,7 @@
       <p class="event-details">年代</p>
       <div class="flex-box">
         <label class="selectbox">
-          <select>
+          <select v-model="ageGroup">
             <option>未就学児</option>
             <option>小学生</option>
             <option>中高生</option>
@@ -52,10 +52,46 @@
       <p class="event-details">場所</p>
       <div class="flex-box">
         <label class="selectbox">
-          <select>
-            <option>optionの例1</option>
-            <option>optionの例2</option>
-            <option>optionの例3</option>
+          <select v-model="location">
+            <option>奈良市（ならし）</option>
+            <option>大和高田市（やまとたかだし）</option>
+            <option>大和郡山市（やまとこおりやまし）</option>
+            <option>天理市（てんりし）</option>
+            <option>橿原市（かしはらし）</option>
+            <option>桜井市（さくらいし）</option>
+            <option>五條市（ごじょうし）</option>
+            <option>御所市（ごせし）</option>
+            <option>生駒市（いこまし）</option>
+            <option>香芝市（かしばし）</option>
+            <option>葛城市（かつらぎし）</option>
+            <option>宇陀市（うだし）</option>
+            <option>山添村（やまぞえむら）</option>
+            <option>平群町（へぐりちょう）</option>
+            <option>三郷町（さんごうちょう）</option>
+            <option>斑鳩町（いかるがちょう）</option>
+            <option>安堵町（あんどちょう）</option>
+            <option>川西町（かわにしちょう）</option>
+            <option>三宅町（みやけちょう）</option>
+            <option>田原本町（たわらもとちょう）</option>
+            <option>曽爾村（そにむら）</option>
+            <option>御杖村（みつえむら）</option>
+            <option>高取町（たかとりちょう）</option>
+            <option>明日香村（あすかむら）</option>
+            <option>上牧町（かんまきちょう）</option>
+            <option>王寺町（おうじちょう）</option>
+            <option>広陵町（こうりょうちょう）</option>
+            <option>河合町（かわいちょう）</option>
+            <option>吉野町（よしのちょう）</option>
+            <option>大淀町（おおよどちょう）</option>
+            <option>下市町（しもいちちょう）</option>
+            <option>黒滝村（くろたきむら）</option>
+            <option>天川村（てんかわむら）</option>
+            <option>野迫川村（のせがわむら）</option>
+            <option>十津川村（とつかわむら）</option>
+            <option>下北山村（しもきたやまむら）</option>
+            <option>上北山村（かみきたやまむら）</option>
+            <option>川上村（かわかみむら）</option>
+            <option>東吉野村（ひがしよしのむら）</option>
           </select>
         </label>
       </div>
@@ -65,7 +101,7 @@
       <p class="event-details">誰と行く？？</p>
       <div class="flex-box">
         <label class="selectbox">
-          <select>
+          <select v-model="companion">
             <option>ボッチ</option>
             <option>恋人</option>
             <option>男友達</option>
@@ -78,16 +114,60 @@
         </label>
       </div>
     </div>
-    <button class="search-button">検索する</button>
+    <button class="search-button" @click="searchEvents">検索する</button>
+
+    <!-- 検索結果の表示 -->
+    <div v-if="searchResult" class="result">
+      <h4>検索結果:</h4>
+      <p>キーワード: {{ searchResult.keyword }}</p>
+      <p>イベントの種類: {{ searchResult.eventType }}</p>
+      <p>日時: {{ searchResult.startDate }} から {{ searchResult.endDate }}</p>
+      <p>年代: {{ searchResult.ageGroup }}</p>
+      <p>場所: {{ searchResult.location }}</p>
+      <p>誰と行く: {{ searchResult.companion }}</p>
+    </div>
   </div>
 </template>
 
-
+<script>
+export default {
+  data() {
+    return {
+      keyword: '',
+      eventType: '',
+      startDate: '',
+      endDate: '',
+      ageGroup: '',
+      location: '',
+      companion: '',
+      searchResult: null
+    };
+  },
+  methods: {
+    searchEvents() {
+      // 入力された値を取得して結果を表示する
+      this.searchResult = {
+        keyword: this.keyword,
+        eventType: this.eventType,
+        startDate: this.startDate,
+        endDate: this.endDate,
+        ageGroup: this.ageGroup,
+        location: this.location,
+        companion: this.companion
+      };
+      console.log('検索結果:', this.searchResult);
+    }
+  }
+};
+</script>
 
 <style scoped>
   .title {                  
     text-align: center;
-    margin-bottom: 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
   }
   
   .form {
@@ -112,6 +192,8 @@
     border-radius: 10px;
     width: 70%;
     max-width: 400px;
+    border: 1px solid #000000;
+    margin-bottom: 10px;
   }
   
   .form-input:focus {
@@ -139,27 +221,27 @@
   }
 
   .selectbox select {
-    appearance: none;
-    width: 100%;
-    height: 40px;
-    padding: .4em calc(.8em + 30px) .4em .8em;
-    border: 1px solid #d0d0d0;
-    border-radius: 3px;
-    background-color: #fff;
-    color: #333333;
-    font-size: 1em;
-    cursor: pointer;
-  }
+  appearance: none;
+  width: 100%;
+  height: 40px;
+  padding: .4em calc(.8em + 30px) .4em .8em;
+  border: 1px solid #000000; /* 枠線の色を黒に変更 */
+  border-radius: 3px;
+  background-color: #fff;
+  color: #333333;
+  font-size: 1em;
+  cursor: pointer;
+}
 
-  .date-input {
-    height: 40px;
-    border: 1px solid #d0d0d0;
-    border-radius: 3px;
-    background-color: #fff;
-    color: #333333;
-    font-size: 1em;
-    width: 48%; /* 日付選択フィールドをセレクトボックスと揃える */
-  }
+.date-input {
+  height: 40px;
+  border: 1px solid #000000; /* 枠線の色を黒に変更 */
+  border-radius: 3px;
+  background-color: #fff;
+  color: #333333;
+  font-size: 1em;
+  width: 48%;
+}
 
   .flex-box {
     display: flex;
@@ -170,6 +252,8 @@
   }
 
   .form-group {
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 15px;
   }
 
