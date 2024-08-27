@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <form
     action="function/repository.php"
     method="GET"
@@ -18,4 +18,4 @@
       v-bind:class="buttonClass"
     />
   </form>
-</template>
+</template> -->
