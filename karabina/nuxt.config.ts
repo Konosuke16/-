@@ -10,4 +10,9 @@ export default defineNuxtConfig({
     },
   },
   srcDir: "src/",
+  nitro: {
+    externals: {
+      inline: ["pg"],
+    },
+  },
 });
