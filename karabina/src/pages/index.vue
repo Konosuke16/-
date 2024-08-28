@@ -1,50 +1,60 @@
 <template>
-  <div>
+  <div class="background">
+    
     <div class="image-container">
-      <img src="../assets/assets/world.png" alt="奈良の風景" class="image">
+      <img src="../assets/assets/WORLD.png" alt="奈良の風景" class="image">
     </div>
-    <h1 class="headline">奈良で旬の体験を</h1>
-    <v-btn @click="submit">
-    Submit
-  </v-btn>
-  </div>
+
+    <div class ="container">
+      <button class="button-style" @click="handleClick">イベントを検索する</button>
+    </div>
+ 
+ </div>
 </template>
 
 
 
 <style scoped>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.background {
+  height: 100vh;
+  background-color: #F3ECD8; /* 画面全体の背景色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .image-container {
   text-align: center;
+  width: 100%;
+  margin: 0; 
 }
 
-.image {
-  max-width: 100%;
-  height: auto;
-}
-
-.headline {
-  text-align: center;
-  margin-top: 10px;
+.image{
+  width: 100%;
+  object-fit: cover;
+  margin: 0;
 }
 
 </style>
 
-  <style scoped>
-  .headline {
-    font-size: 2rem; /* 文字の大きさ */
-    color: #333; /* 文字の色 */
-    text-align: center; /* テキストを中央揃え */
-    padding: 1rem; /* 周りのスペース */
-    font-family: 'Arial', sans-serif; /* フォントの設定 */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* 文字の影を追加 */
-  }
-  </style>
+ 
 
 <!-- App.vue または使用するコンポーネントファイル -->
 
-
 <script>
-import Button from "../components/button/Button.vue" 
 export default {
   server: {
     hmr: {
@@ -55,21 +65,23 @@ export default {
 </script>
 
 <style scoped>
-.image-container {
-  text-align: center;
+.button-style {
+  background-color: #FBBF24; /* bg-yellow-500 の色 */
+  color: black; /* 文字色を白に設定 */
+  padding: 30px 90px; /* ボタンの内側の余白 */
+  border: none; /* ボーダーを削除 */
+  border-radius: 15px; /* ボタンの角を丸くする */
+  font-size: 1.5rem; /* 文字のサイズ */
+  cursor: pointer; /* カーソルをポインターにする */
+  text-align: center; /* テキストを中央に配置 */
+  margin-top: 10px;
 }
 
-.image {
-  max-width: 100%;
-  height: auto;
+.button-style:hover {
+  background-color: #F59E0B; /* hover時の色 */
 }
 
-.headline {
-  font-size: 2rem;
-  color: #333;
-  text-align: center;
-  padding: 1rem;
-  font-family: 'Arial', sans-serif;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+.background {
+ background-color: #F3ECD8 
 }
 </style>
