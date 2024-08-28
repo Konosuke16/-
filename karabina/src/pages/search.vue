@@ -3,7 +3,12 @@
     <h3 class="title">イベント検索</h3>
     <div class="form">
       <i class="fa fa-search"></i>
-      <input type="text" class="form-control form-input" v-model="keyword" placeholder="キーワードを入力...">
+      <input
+        type="text"
+        class="form-control form-input"
+        v-model="keyword"
+        placeholder="キーワードを入力..."
+      />
     </div>
 
     <div class="form-group">
@@ -26,9 +31,21 @@
     <div class="form-group">
       <p class="event-details">日時</p>
       <div class="flex-box">
-        <input type="date" name="startdate" id="startdate" class="date-input" v-model="startDate">
+        <input
+          type="date"
+          name="startdate"
+          id="startdate"
+          class="date-input"
+          v-model="startDate"
+        />
         <label> ~ </label>
-        <input type="date" name="enddate" id="enddate" class="date-input" v-model="endDate">
+        <input
+          type="date"
+          name="enddate"
+          id="enddate"
+          class="date-input"
+          v-model="endDate"
+        />
       </div>
     </div>
 
@@ -133,14 +150,14 @@
 export default {
   data() {
     return {
-      keyword: '',
-      eventType: '',
-      startDate: '',
-      endDate: '',
-      ageGroup: '',
-      location: '',
-      companion: '',
-      searchResult: null
+      keyword: "",
+      eventType: "",
+      startDate: "",
+      endDate: "",
+      ageGroup: "",
+      location: "",
+      companion: "",
+      searchResult: null,
     };
   },
   methods: {
@@ -153,78 +170,83 @@ export default {
         endDate: this.endDate,
         ageGroup: this.ageGroup,
         location: this.location,
-        companion: this.companion
+        companion: this.companion,
       };
-      console.log('検索結果:', this.searchResult);
-    }
-  }
+      console.log("検索結果:", this.searchResult);
+
+      this.$router.push({
+        path: "/result",
+        query: this.searchResult,
+      });
+    },
+  },
 };
 </script>
 
 <style scoped>
-  .title {                  
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 25px;
-    font-weight: bold;
-  }
-  
-  .form {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    margin-top: 0px;
-    margin-bottom: 0px; 
-  }
-  
-  .form .fa-search {        
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #9ca3af;
-  }
-  
-  .form-input {
-    height: 40px;
-    text-indent: 33px;
-    border-radius: 10px;
-    width: 70%;
-    max-width: 400px;
-    border: 1px solid #000000;
-    margin-bottom: 10px;
-  }
-  
-  .form-input:focus {
-    box-shadow: none;
-    border: none;
-  }
+.title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
 
-  .selectbox {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    margin-bottom: 0px;
-    width: 100%;
-  }
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
-  .selectbox::after {
-    position: absolute;
-    right: 15px;
-    width: 10px;
-    height: 7px;
-    background-color: #535353;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    content: '';
-    pointer-events: none;
-  }
+.form .fa-search {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
 
-  .selectbox select {
+.form-input {
+  height: 40px;
+  text-indent: 33px;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 400px;
+  border: 1px solid #000000;
+  margin-bottom: 10px;
+}
+
+.form-input:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.selectbox {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.selectbox::after {
+  position: absolute;
+  right: 15px;
+  width: 10px;
+  height: 7px;
+  background-color: #535353;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.selectbox select {
   appearance: none;
   width: 100%;
   height: 40px;
-  padding: .4em calc(.8em + 30px) .4em .8em;
+  padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
   border: 1px solid #000000; /* 枠線の色を黒に変更 */
   border-radius: 3px;
   background-color: #fff;
@@ -243,35 +265,35 @@ export default {
   width: 48%;
 }
 
-  .flex-box {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center; 
-    width: 100%;
-  }
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
 
-  .form-group {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-  }
+.form-group {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
 
-  .event-details {
-    margin-bottom: 5px;
-    margin-left: 5px;
-  }
+.event-details {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
 
-  .search-button {
-    width: 200px;
-    height: 55px;
-    border-radius: 5px;
-    background-color:burlywood;
-    max-width: 60%;
-    display: block;
-    margin: auto;
-    margin-top: 50px;
-    font-size: 25px;
-    font-weight: bold;
-  }
+.search-button {
+  width: 200px;
+  height: 55px;
+  border-radius: 5px;
+  background-color: burlywood;
+  max-width: 60%;
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+  font-size: 25px;
+  font-weight: bold;
+}
 </style>

@@ -1,26 +1,29 @@
 <template>
   <div class="p-4">
     <!-- イベントの画像と詳細 -->
-    <div class="bg-white p-4 shadow rounded">
-      <!-- <img
-        src="/path/to/image"
-        alt="イベント画像"
-        class="w-full mb-4 rounded"
-      /> -->
-      <h2 class="text-xl font-bold mb-2">イベント詳細: {{ detailId }}</h2>
-      <p class="mb-2">・なら祭り</p>
-      <p class="mb-2">・8月24日（土）</p>
-      <p class="mb-2">・対象年齢、層（子供から大人まで）</p>
-      <p class="mb-2">
-        ・詳細（1300年の歴史ある平城京で書道体験！道具なしで誰でも参加できます！ひとり500円）
+    <div v-if="event" class="bg-white p-4 shadow rounded">
+      <h2 class="text-xl font-bold mb-2">{{ event.name }}</h2>
+      <p class="mb-2">・{{ formatDate(event.date) }}</p>
+      <p class="mb-2">・場所: {{ event.location }}</p>
+      <p class="mb-2">・詳細: {{ event.description }}</p>
+      <p>
+        ・申し込みリンク(これはサンプルです):
+        <a :href="event.link" target="_blank">公式HP</a>
       </p>
-      <p>・申し込みリンク（公式HP）</p>
+    </div>
+
+    <!-- イベントが見つからなかった場合のメッセージ -->
+    <div v-else class="bg-white p-4 shadow rounded">
+      <p>イベントが見つかりませんでした。</p>
+      <p>ID: {{ route.params.detail }}</p>
+      <!-- 取得できているパラメータを表示 -->
+      <p v-if="!events.length">イベントデータがロードされていません。</p>
     </div>
 
     <!-- 地図セクション -->
-    <div class="mt-4 bg-white p-4 shadow rounded">
+    <div v-if="event" class="mt-4 bg-white p-4 shadow rounded">
       <h3 class="text-lg font-bold mb-2">地図</h3>
-      <p>・近鉄奈良駅西口より徒歩15分</p>
+      <p>・{{ event.location }}</p>
     </div>
 
     <!-- イベント検索に戻るボタン -->
@@ -35,21 +38,34 @@
   </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    goBack() {
-      this.$router.push("/result");
-    },
-  },
-  data() {
-    return {
-      detailId: null,
-    };
-  },
-  mounted() {
-    this.detailId = this.$route.params.detail;
-  },
+<script setup>
+import { useRoute, useRouter } from "vue-router";
+import { computed } from "vue";
+
+const route = useRoute();
+const router = useRouter();
+
+const { data: events } = useAsyncData(
+  "events",
+  async () => await $fetch("/api/getEvents")
+);
+
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString("ja-JP", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+};
+
+// IDに基づいてイベントをフィルタリング
+const event = computed(() => {
+  const eventId = route.params.detail;
+  return events.value.find((e) => e.id === eventId) || null;
+});
+
+const goBack = () => {
+  router.back();
 };
 </script>
 

@@ -11,7 +11,7 @@
       <li class="top"><a href="/">TOP</a></li>
       <li><a href="/search">イベント検索</a></li>
       <li><a href="/my_page">マイページ</a></li>
-      <li><a href="/test">テスト</a></li>
+      <li><a href="/allEvents">イベント一覧</a></li>
     </ul>
   </header>
 </template>
