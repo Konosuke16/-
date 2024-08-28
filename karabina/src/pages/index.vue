@@ -6,7 +6,7 @@
     </div>
 
     <div class ="container">
-      <button class="button-style" @click="handleClick">イベントを検索する</button>
+      <router-link to="/search" class="button-style">イベントを検索する</router-link>
     </div>
  
  </div>
