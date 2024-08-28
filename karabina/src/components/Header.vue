@@ -8,10 +8,10 @@
       ><span class="navicon"></span
     ></label>
     <ul class="menu bg-yellow-500">
-      <li class="top"><a href="#home">home</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#projects">projects</a></li>
-      <li><a href="#contact">contact</a></li>
+      <li class="top"><a href="/">TOP</a></li>
+      <li><a href="/search">イベント検索</a></li>
+      <li><a href="/my_page">マイページ</a></li>
+      <li><a href="/test">テスト</a></li>
     </ul>
   </header>
 </template>
