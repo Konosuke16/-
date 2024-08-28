@@ -8,10 +8,11 @@
       ><span class="navicon"></span
     ></label>
     <ul class="menu bg-yellow-500">
-      <li class="top"><a href="#home">home</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#projects">projects</a></li>
-      <li><a href="#contact">contact</a></li>
+      <!-- Vue Router を使う場合は <router-link> を使います -->
+      <li class="top"><a href="">ホーム</a></li>
+      <li><a href="search">イベント検索</a></li>
+      <li><a href="#map">マップ</a></li>
+      <li><a href="#favorites">お気に入り</a></li>
     </ul>
   </header>
 </template>
@@ -41,6 +42,7 @@ export default {
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
   transform: scale(1, 0);
   transform-origin: top;
+  z-index: 1000; /* 最前面に表示 */
 }
 
 /* Hamburger menu button */
@@ -50,7 +52,7 @@ export default {
   transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
 }
 
-/* Hamburger menbu text */
+/* Hamburger menu text */
 .menu a {
   text-decoration: none;
   font-weight: 500;
