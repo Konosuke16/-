@@ -8,11 +8,10 @@
       ><span class="navicon"></span
     ></label>
     <ul class="menu bg-yellow-500">
-      <!-- Vue Router を使う場合は <router-link> を使います -->
-      <li class="top"><a href="">ホーム</a></li>
-      <li><a href="search">イベント検索</a></li>
-      <li><a href="#map">マップ</a></li>
-      <li><a href="#favorites">お気に入り</a></li>
+      <li class="top"><a href="/">TOP</a></li>
+      <li><a href="/search">イベント検索</a></li>
+      <li><a href="/my_page">マイページ</a></li>
+      <li><a href="/test">テスト</a></li>
     </ul>
   </header>
 </template>
