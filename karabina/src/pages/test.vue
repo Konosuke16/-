@@ -9,23 +9,12 @@
   </div>
 </template>
 
-<script>
-import axios from "axios";
+<script setup>
+const { data: events } = await useAsyncData("events", () =>
+  $fetch("/api/getEvents")
+);
 
-export default {
-  async asyncData() {
-    try {
-      const res = await axios.get("/api/getEvents");
-      return { events: res.data };
-    } catch (error) {
-      console.error("Failed to fetch events:", error);
-      return { events: [] };
-    }
-  },
-  methods: {
-    formatDate(date) {
-      return new Date(date).toLocaleDateString();
-    },
-  },
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString();
 };
 </script>
