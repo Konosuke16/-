@@ -64,10 +64,10 @@ export default {
 .button-style {
   background-color: #fbbf24; /* bg-yellow-500 の色 */
   color: black; /* 文字色を白に設定 */
-  padding: 30px 90px; /* ボタンの内側の余白 */
+  padding: 20px 90px; /* ボタンの内側の余白 */
   border: none; /* ボーダーを削除 */
   border-radius: 15px; /* ボタンの角を丸くする */
-  font-size: 1.5rem; /* 文字のサイズ */
+  font-size: 30px; /* 文字のサイズ */
   cursor: pointer; /* カーソルをポインターにする */
   text-align: center; /* テキストを中央に配置 */
   margin-top: 10px;

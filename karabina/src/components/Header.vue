@@ -1,5 +1,5 @@
 <template>
-  <header class="header bg-yellow-500">
+  <header class="header">
     <div class="navtext-container">
       <div class="navtext">奈良MAP</div>
     </div>
@@ -7,7 +7,7 @@
     <label for="menu-btn" class="menu-icon"
       ><span class="navicon"></span
     ></label>
-    <ul class="menu bg-yellow-500">
+    <ul class="menu">
       <li class="top"><a href="/">TOP</a></li>
       <li><a href="/search">イベント検索</a></li>
       <li><a href="/my_page">マイページ</a></li>
@@ -28,6 +28,10 @@ export default {
 </script>
 
 <style scoped>
+.header{
+  background-color: #fbbf24;
+}
+
 /* Nav items */
 .menu {
   list-style: none;
@@ -42,6 +46,7 @@ export default {
   transform: scale(1, 0);
   transform-origin: top;
   z-index: 1000; /* 最前面に表示 */
+  background-color: #fbbf24;
 }
 
 /* Hamburger menu button */
@@ -156,6 +161,6 @@ export default {
   text-transform: uppercase;
   color: #000;
   letter-spacing: 4px;
-  font-size: 20px;
+  font-size: 30px;
 }
 </style>

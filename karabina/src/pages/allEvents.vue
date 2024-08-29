@@ -54,7 +54,7 @@ const goToDetail = (id) => {
   text-align: center;
   padding: 0.5rem;
   font-size: 1.5rem;
-  color: #fff;
+  color: black;
   border-radius: 8px;
 }
 

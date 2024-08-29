@@ -285,15 +285,14 @@ export default {
 }
 
 .search-button {
-  width: 200px;
+  width: 1000px;
   height: 55px;
   border-radius: 5px;
-  background-color: burlywood;
-  max-width: 60%;
+  background-color: #fbbf24;
+  max-width: 90%;
   display: block;
   margin: auto;
   margin-top: 50px;
   font-size: 25px;
-  font-weight: bold;
 }
 </style>
