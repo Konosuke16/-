@@ -10,8 +10,10 @@ RUN npm install
 
 COPY . .
 
+# Cloud Runが期待するポートに合わせる
+ENV PORT 8080
 ENV HOST 0.0.0.0
-EXPOSE 3000
+EXPOSE 8080
 
 RUN npm run build
 
