@@ -21,7 +21,7 @@ body {
 }
 
 .background {
-  height: 100vh;
+  height: calc(100vh - 57px);
   background-color: #f3ecd8;
   display: flex;
   justify-content: center;
