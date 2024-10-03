@@ -12,17 +12,17 @@
   </div>
 </template>
 
-<style scoped>
-html,
+<style scoped>html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden; 
 }
 
 .background {
   height: 100vh;
-  background-color: #f3ecd8; /* 画面全体の背景色 */
+  background-color: #f3ecd8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,14 +38,35 @@ body {
 .image-container {
   text-align: center;
   width: 100%;
-  margin: 0;
+  max-height: 50vh; 
+  margin-top: -75%;
 }
 
 .image {
   width: 100%;
-  object-fit: cover;
+  height: auto; 
+  object-fit: contain;
   margin: 0;
 }
+
+.button-style {
+  background-color: #fbbf24;
+  color: black;
+  padding: 10% 20%;
+  border: none;
+  border-radius: 15px;
+  font-size: 20px; 
+  cursor: pointer;
+  text-align: center;
+  margin: 10px;
+  position: absolute;
+	bottom: 3%;
+}
+
+.button-style:hover {
+  background-color: #f59e0b;
+}
+
 </style>
 
 <!-- App.vue または使用するコンポーネントファイル -->
@@ -60,24 +81,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.button-style {
-  background-color: #fbbf24; /* bg-yellow-500 の色 */
-  color: black; /* 文字色を白に設定 */
-  padding: 20px 90px; /* ボタンの内側の余白 */
-  border: none; /* ボーダーを削除 */
-  border-radius: 15px; /* ボタンの角を丸くする */
-  font-size: 30px; /* 文字のサイズ */
-  cursor: pointer; /* カーソルをポインターにする */
-  text-align: center; /* テキストを中央に配置 */
-  margin-top: 10px;
-}
 
-.button-style:hover {
-  background-color: #f59e0b; /* hover時の色 */
-}
-
-.background {
-  background-color: #f3ecd8;
-}
-</style>
