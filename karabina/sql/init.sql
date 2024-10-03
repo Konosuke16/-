@@ -16,6 +16,18 @@ CREATE TABLE event_search (
     link VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE user{
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+}
+CREATE TABLE favorites (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES user(id),
+    event_id INTEGER NOT NULL REFERENCES event(id),
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 INSERT INTO event (name, description, image) VALUES
 ('奈良公園秋のフェスティバル', '奈良公園で開催される秋の季節を祝うフェスティバル。伝統的な文化パフォーマンスや美味しい食べ物の屋台が並びます。', 'nara_park_autumn.jpg'),
 ('東大寺の儀式', '東大寺で毎年行われる宗教的な儀式。伝統的な儀式や灯籠の展示が行われます。', 'todaiji_ceremony.jpg'),
